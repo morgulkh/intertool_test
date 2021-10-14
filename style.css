@@ -1,5 +1,7 @@
+@charset "UTF-8";
 body {
   background-color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
 }
 
 .main {
@@ -32,6 +34,15 @@ body {
 
 .banners {
   margin-top: 110px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.banners .banners_container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product_category h2 {
@@ -49,6 +60,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.product_category .category_card_container .category_card p {
+  text-transform: capitalize;
 }
 .product_category .category_card_container .category_card .category_img_container {
   height: 162px;
@@ -83,9 +97,41 @@ body {
   display: flex;
   flex-direction: column;
 }
+.catalog .catalog_card_container .catalog_card .rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  display: flex;
+  justify-content: flex-end;
+}
+.catalog .catalog_card_container .catalog_card .rating span {
+  color: #FFC600;
+}
+.catalog .catalog_card_container .catalog_card .rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.5em;
+}
+.catalog .catalog_card_container .catalog_card .rating > span:hover:before,
+.catalog .catalog_card_container .catalog_card .rating > span:hover ~ span:before {
+  content: "★";
+  position: absolute;
+  cursor: pointer;
+}
+.catalog .catalog_card_container .catalog_card .price {
+  font-size: 18px;
+  font-weight: 700;
+}
+.catalog .catalog_card_container .catalog_card .price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  text-decoration: line-through;
+  padding-left: 9px;
+}
 .catalog .catalog_card_container .catalog_card .catalog_img_container {
   width: 100%;
   height: 260px;
+  margin-bottom: 15px;
   background-color: #FAFAFA;
   box-sizing: border-box;
   display: flex;
@@ -97,6 +143,12 @@ body {
   max-height: 100%;
   width: auto;
   height: auto;
+}
+.catalog .catalog_card_container .catalog_card .descr_container p {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .blog h2 {
@@ -113,6 +165,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  margin-bottom: 120px;
 }
 .blog .blog_container .blog_card .data {
   background-color: #FDAA4B;
@@ -126,15 +179,32 @@ body {
   width: 100%;
   height: auto;
 }
+.blog .blog_container .blog_card .data {
+  width: 124px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
 .blog .blog_container .blog_card .comment_container {
   max-width: 347px;
-  height: 90px;
-  padding: 21px 13px 13px 14px;
+  padding: 15px 13px 13px 14px;
   background-color: #fff;
   position: absolute;
   bottom: -63px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.45);
 }
 .blog .blog_container .blog_card .comment_container .comment_icon {
+  color: #32656A;
+}
+.blog .blog_container .blog_card .comment_container h3 {
+  margin: 13px 0 9px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.blog .blog_container .blog_card .comment_container p {
+  margin: 0;
+  font-size: 14px;
   color: #32656A;
 }
 
