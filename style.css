@@ -1,0 +1,37 @@
+body {
+  background-color: #FAFAFA;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #32656A;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+.header .nav {
+  display: flex;
+  height: 110px;
+  width: 100%;
+}
+.header .nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.header .nav ul li {
+  list-style-type: none;
+}
+
+.banners {
+  margin-top: 110px;
+}
+
+/*# sourceMappingURL=style.css.map */
