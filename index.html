@@ -9,26 +9,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="main">
-    <div class="popup"></div>
-    <header class="header">
-        <div class="nav">
-            <div class="logo"><img src="img/icon_logo/logo%201.png" alt="logo"></div>
-            <div class="search">
-                <form action="#" class="search_form">
-                    <button type="submit" class="search_btn"></button>
-                    <input type="search" placeholder="search" class="input_search">
-                </form>
-            </div>
-            <div class="nav_icon">
-                <ul>
-                    <li><img src="img/icon_logo/user.png" alt="icon"></li>
-                    <li><img src="img/icon_logo/favorites.png" alt="icon"></li>
-                    <li><img src="img/icon_logo/truck.png" alt="icon"></li>
-                </ul>
-            </div>
+<div class="popup" id="popup">
+    <div class="form_container">
+        <button type="button" class="cancel" id="cancel_btn">x</button>
+        <form class="sign_in_form">
+            <h2>welcome</h2>
+            <input type="text" placeholder="Enter Login">
+            <input type="text" placeholder="Enter Password">
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
+</div>
+<header class="header">
+    <div class="nav">
+        <a class="logo" href="#"><img src="img/icon_logo/logo%201.png" alt="logo"></a>
+        <div class="search">
+            <form action="#" class="search_form">
+                <button type="submit" class="search_btn"><img src="img/icon_logo/icon%20Search.png"></button>
+                <input type="search" placeholder="search" class="input_search">
+            </form>
         </div>
-    </header>
+        <div class="nav_icon">
+            <ul>
+                <li><button type="button" id="btn_sign_in"><img src="img/icon_logo/user.png" alt="icon"></button></li>
+                <li><button type="button"><img src="img/icon_logo/favorites.png" alt="icon"></button></li>
+                <li><button type="button"><img src="img/icon_logo/truck.png" alt="icon"></button></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main class="main">
     <section class="banners">
         <div class="slider_container">
             <div class="slide">
@@ -174,5 +184,15 @@
         </div>
     </section>
 </main>
+<script>
+    function showHidePopup () {
+        let btnSignIn = document.getElementById('btn_sign_in');
+        let btnCancel = document.getElementById('cancel_btn');
+        let popup = document.getElementById('popup');
+        btnSignIn.addEventListener('click', () => { popup.classList.add("show") })
+        btnCancel.addEventListener('click', () => { popup.classList.remove("show") })
+    }
+    showHidePopup()
+</script>
 </body>
 </html>
