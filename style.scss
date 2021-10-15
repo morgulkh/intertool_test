@@ -40,6 +40,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
       h2 {
         font-size: 30px;
         text-align: center;
@@ -55,9 +56,9 @@ body {
         padding: 0 0 0 15px;
         font-size: 20px;
       }
-      button {
+      #btn_popup_sign_in {
         height: 60px;
-        width: 250px;
+        width: 50%;
         padding: 0;
         color: #32656A;
         font-weight: 700;
@@ -70,6 +71,21 @@ body {
         border: 3px solid #999999;
         border-radius: 5px;
         overflow: hidden;
+      }
+      .popup_error {
+        position: absolute;
+        font-size: 18px;
+        color: #E30B0B;
+      }
+      #wrong_login {
+        left: 20px;
+        top: 130px;
+      }
+      #wrong_password {
+        left: 20px;
+        top: 225px;
+      }
+      .show_popup_error {
       }
     }
   }
@@ -159,6 +175,7 @@ body {
 .carousel {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   .slider_container {
     width: calc(95% - 300px);
     .slide {
@@ -180,9 +197,10 @@ body {
           bottom: -150px;
         }
         img {
-          z-index: 2;
+          z-index: 1;
           max-height: 450px;
           max-width: 100%;
+          min-width: 450px;
           height: auto;
           width: auto;
         }

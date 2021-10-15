@@ -43,6 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 .popup .form_container .sign_in_form h2 {
   font-size: 30px;
@@ -59,9 +60,9 @@ body {
   padding: 0 0 0 15px;
   font-size: 20px;
 }
-.popup .form_container .sign_in_form button {
+.popup .form_container .sign_in_form #btn_popup_sign_in {
   height: 60px;
-  width: 250px;
+  width: 50%;
   padding: 0;
   color: #32656A;
   font-weight: 700;
@@ -75,7 +76,19 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-
+.popup .form_container .sign_in_form .popup_error {
+  position: absolute;
+  font-size: 18px;
+  color: #E30B0B;
+}
+.popup .form_container .sign_in_form #wrong_login {
+  left: 20px;
+  top: 130px;
+}
+.popup .form_container .sign_in_form #wrong_password {
+  left: 20px;
+  top: 225px;
+}
 .show {
   z-index: 3;
   opacity: 1;
@@ -164,6 +177,7 @@ body {
 .carousel {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 .carousel .slider_container {
   width: calc(95% - 300px);
@@ -187,9 +201,10 @@ body {
   bottom: -150px;
 }
 .carousel .slider_container .slide .slide_img_container img {
-  z-index: 2;
+  z-index: 1;
   max-height: 450px;
   max-width: 100%;
+  min-width: 450px;
   height: auto;
   width: auto;
 }

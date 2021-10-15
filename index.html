@@ -12,12 +12,14 @@
 <body>
 <div class="popup" id="popup">
     <div class="form_container" id="form_container">
-        <button type="button" class="cancel" id="cancel_btn"></button>
-        <form class="sign_in_form">
+        <form class="sign_in_form" id="sign_in_form">
+            <button type="button" class="cancel" id="cancel_btn"></button>
             <h2>welcome</h2>
-            <input type="text" placeholder="Enter Login">
-            <input type="text" placeholder="Enter Password">
-            <button>Sign in</button>
+            <input type="text" placeholder="Enter Login" id="login_input">
+            <p class="popup_error" id="wrong_login"></p>
+            <input type="text" placeholder="Enter Password" id="password_input">
+            <p class="popup_error" id="wrong_password"></p>
+            <button type="submit" id="btn_popup_sign_in">Sign in</button>
         </form>
     </div>
 </div>
@@ -191,20 +193,81 @@
     </section>
 </main>
 <script>
+    function clearForm () {
+        document.getElementById('login_input').value = '';
+        document.getElementById('password_input').value = '';
+        document.getElementById('wrong_login').innerHTML = '';
+        document.getElementById('wrong_password').innerHTML = '';
+    }
+
     function initPopup () {
-        let btnSignIn = document.getElementById('btn_sign_in');
-        let btnCancel = document.getElementById('cancel_btn');
-        let popup = document.getElementById('popup');
-        let formContainer = document.getElementById('form_container');
-        btnSignIn.addEventListener('click', () => { popup.classList.add("show") });
-        btnCancel.addEventListener('click', () => { popup.classList.remove("show") });
-        popup.addEventListener('click', () => { popup.classList.remove("show") });
+        const btnSignIn = document.getElementById('btn_sign_in');
+        const btnCancel = document.getElementById('cancel_btn');
+        const popup = document.getElementById('popup');
+        const formContainer = document.getElementById('form_container');
+
+        btnSignIn.addEventListener('click', () => {
+            clearForm();
+            popup.classList.add("show");
+        });
+
+        btnCancel.addEventListener('click', () => {
+            popup.classList.remove("show");
+        });
+
+        popup.addEventListener('click', () => {
+            popup.classList.remove("show");
+        });
+
         formContainer.addEventListener('click', (evt) => {
-            evt.preventDefault();
             evt.stopPropagation();
         });
     }
-    initPopup()
+
+    function validateForm () {
+        const login = 'login';
+        const pass = 'password';
+        let loginInputValue = document.getElementById('login_input').value;
+        let passwordInputValue = document.getElementById('password_input').value;
+        let wrongLogin = document.getElementById('wrong_login');
+        let wrongPassword = document.getElementById('wrong_password');
+        let btnPopupSignIn = document.getElementById('btn_popup_sign_in');
+        let textErrorLog = '';
+        let textErrorPass = '';
+
+        if (loginInputValue.length === 0) {
+            textErrorLog = "Please, Enter Login";
+        } else  if (loginInputValue.length !== 0 && loginInputValue !== login) {
+            textErrorLog = "Incorrect Login"
+        }
+
+        if (passwordInputValue.length === 0) {
+            textErrorPass = "Please, Enter Password";
+        } else  if (passwordInputValue.length !== 0 && passwordInputValue !== pass) {
+            textErrorPass = "Incorrect Password"
+        }
+
+        wrongLogin.innerHTML = textErrorLog;
+        wrongPassword.innerHTML = textErrorPass;
+
+        if (textErrorLog === '' && textErrorPass === '') {
+            document.getElementById('popup').classList.remove('show');
+        }
+    }
+
+    function initFormEvents() {
+        const form = document.getElementById('sign_in_form');
+        form.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+            validateForm();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initPopup();
+        initFormEvents();
+    });
+
 </script>
 </body>
 </html>
