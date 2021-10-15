@@ -26,16 +26,15 @@ body {
       position: absolute;
       right: 10px;
       top: 10px;
-      width: 20px;
-      height: 20px;
-      border-radius: 5px;
-      border: 1px solid #32656A;
-      font-size: 18px;
-      font-weight: 700;
-      color: #32656A;
+      width: 25px;
+      height: 25px;
+      border: none;
+      overflow: hidden;
       padding: 0;
-      line-height: 20px;
-      text-align: center;
+      background-image: url("img/icon_logo/close.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     .sign_in_form {
       display: flex;
@@ -154,7 +153,7 @@ body {
 }
 .main {
   margin-top: 110px;
-  max-width: 1280px;
+  width: 1280px;
   display: flex;
   flex-direction: column;
 }
@@ -285,6 +284,7 @@ body {
   }
 }
 .blog {
+  width: 100%;
   h2 {
     text-transform: capitalize;
     text-align: center;
@@ -294,6 +294,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 100%;
     .blog_card {
       max-width: 405px;
       position: relative;
