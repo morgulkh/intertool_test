@@ -92,8 +92,7 @@ body {
     display: flex;
     justify-content: space-between;
     height: 56px;
-    width: 100%;
-    max-width: 1260px;
+    width: 1260px;
     padding: 0 10px;
     .logo{
       width: 184px;
@@ -160,14 +159,28 @@ body {
 .carousel {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   .slider_container {
-    max-height: 450px;
+    width: calc(95% - 300px);
     .slide {
-      max-height: 450px;
       .slide_img_container {
         max-height: 450px;
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: #F5F5F5;
+        position: relative;
+        overflow: hidden;
+        .slide_img_background {
+          position: absolute;
+          background-color: #e2e2e2;
+          width: 550px;
+          height: 550px;
+          border-radius: 50%;
+          overflow: hidden;
+          right: -50px;
+          bottom: -150px;
+        }
         img {
+          z-index: 2;
           max-height: 450px;
           max-width: 100%;
           height: auto;
@@ -183,6 +196,8 @@ body {
     justify-content: space-between;
     .carousel_side_img {
       max-height: 200px;
+      display: flex;
+      flex-direction: row-reverse;
       img {
         max-height: 100%;
         max-width: 100%;
