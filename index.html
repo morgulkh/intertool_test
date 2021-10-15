@@ -7,16 +7,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div class="popup" id="popup">
-    <div class="form_container">
+    <div class="form_container" id="form_container">
         <button type="button" class="cancel" id="cancel_btn">x</button>
         <form class="sign_in_form">
             <h2>welcome</h2>
             <input type="text" placeholder="Enter Login">
             <input type="text" placeholder="Enter Password">
-            <button type="submit">Sign in</button>
+            <button>Sign in</button>
         </form>
     </div>
 </div>
@@ -43,7 +44,7 @@
         <div class="slider_container">
             <div class="slide">
                 <div class="slide_img_container">
-                    <img src="img/banner/computer-1.png">
+                    <img src="img/banner/computer-1.png" alt="img">
                 </div>
             </div>
         </div>
@@ -185,14 +186,20 @@
     </section>
 </main>
 <script>
-    function showHidePopup () {
+    function initPopup () {
         let btnSignIn = document.getElementById('btn_sign_in');
         let btnCancel = document.getElementById('cancel_btn');
         let popup = document.getElementById('popup');
-        btnSignIn.addEventListener('click', () => { popup.classList.add("show") })
-        btnCancel.addEventListener('click', () => { popup.classList.remove("show") })
+        let formContainer = document.getElementById('form_container');
+        btnSignIn.addEventListener('click', () => { popup.classList.add("show") });
+        btnCancel.addEventListener('click', () => { popup.classList.remove("show") });
+        popup.addEventListener('click', () => { popup.classList.remove("show") });
+        formContainer.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            evt.stopPropagation();
+        });
     }
-    showHidePopup()
+    initPopup()
 </script>
 </body>
 </html>
