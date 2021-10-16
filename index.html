@@ -42,21 +42,34 @@
     </div>
 </header>
 <main class="main">
-    <section class="carousel">
+    <section class="carousel_container">
         <div class="slider_container">
-            <div class="slide">
-                <div class="slide_img_container">
-                    <div class="slide_img_background"></div>
-                    <img src="img/carousel/computer-1.png" alt="img">
+            <div class="slide_img_background"></div>
+            <div class="caroussel">
+                <div class="slides-parent">
+                    <div class="slide">
+                        <img src="img/caroussel/computer-1.png" alt="img">
+                    </div>
+                    <div class="slide">
+                        <img src="img/caroussel/computer-2.png" alt="img">
+                    </div>
+                    <div class="slide">
+                        <img src="img/caroussel/computer-3.png" alt="img">
+                    </div>
+                    <div class="slide">
+                        <img src="img/caroussel/computer-4.png" alt="img">
+                    </div>
                 </div>
             </div>
+            <a href="javascript: void(0);" class="arrow left-arrow">&#10094;</a>
+            <a href="javascript: void(0);" class="arrow right-arrow">&#10095;</a>
         </div>
         <div class="carousel_side_container">
             <div class="carousel_side_img">
-                <img src="img/carousel/computer-3.png" alt="img">
+                <img src="img/caroussel/computer-3.png" alt="img">
             </div>
             <div class="carousel_side_img">
-                <img src="img/carousel/computer-4.png" alt="img">
+                <img src="img/caroussel/computer-4.png" alt="img">
             </div>
         </div>
     </section>
@@ -208,15 +221,15 @@
 
         btnSignIn.addEventListener('click', () => {
             clearForm();
-            popup.classList.add("show");
+            popup.classList.add("show_popup");
         });
 
         btnCancel.addEventListener('click', () => {
-            popup.classList.remove("show");
+            popup.classList.remove("show_popup");
         });
 
         popup.addEventListener('click', () => {
-            popup.classList.remove("show");
+            popup.classList.remove("show_popup");
         });
 
         formContainer.addEventListener('click', (evt) => {
@@ -251,7 +264,7 @@
         wrongPassword.innerHTML = textErrorPass;
 
         if (textErrorLog === '' && textErrorPass === '') {
-            document.getElementById('popup').classList.remove('show');
+            document.getElementById('popup').classList.remove('show_popup');
         }
     }
 
@@ -263,9 +276,37 @@
         });
     }
 
+    function initCaroussel () {
+        const slide = document.getElementsByClassName('slide')[0];
+        const slider = document.getElementsByClassName('slides-parent')[0];
+        const arrowLeft = document.getElementsByClassName('left-arrow')[0];
+        const arrowRight = document.getElementsByClassName('right-arrow')[0];
+        const slideWidth = slide.offsetWidth;
+
+        const scrollLeft = () => {
+            let scrollLeft = slider.scrollLeft - slideWidth;
+            slider.scrollTo({left: scrollLeft, behavior: 'smooth'});
+        };
+        const scrollRight = () => {
+            let scrollLeft = slider.scrollLeft + slideWidth;
+            slider.scrollTo({left: scrollLeft, behavior: 'smooth'});
+        };
+        const  scrollTo = () => {
+            arrowLeft.addEventListener('click' , () => {
+                scrollLeft();
+            });
+            arrowRight.addEventListener('click' , () => {
+                scrollRight();
+            });
+        };
+
+        scrollTo();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         initPopup();
         initFormEvents();
+        initCaroussel();
     });
 
 </script>

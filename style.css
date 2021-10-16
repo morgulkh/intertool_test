@@ -89,8 +89,8 @@ body {
   left: 20px;
   top: 225px;
 }
-.show {
-  z-index: 3;
+.show_popup {
+  z-index: 1;
   opacity: 1;
 }
 
@@ -174,52 +174,90 @@ body {
   flex-direction: column;
 }
 
-.carousel {
+.carousel_container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
-.carousel .slider_container {
+.carousel_container .slider_container {
   width: calc(95% - 300px);
-}
-.carousel .slider_container .slide .slide_img_container {
-  max-height: 450px;
-  display: flex;
-  flex-direction: row-reverse;
+  margin-bottom: 20px;
   background-color: #F5F5F5;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: right;
 }
-.carousel .slider_container .slide .slide_img_container .slide_img_background {
+.carousel_container .slider_container .slide_img_background {
   position: absolute;
   background-color: #e2e2e2;
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  overflow: hidden;
   right: -50px;
   bottom: -150px;
 }
-.carousel .slider_container .slide .slide_img_container img {
-  z-index: 1;
-  max-height: 450px;
-  max-width: 100%;
-  min-width: 450px;
-  height: auto;
-  width: auto;
+.carousel_container .slider_container .caroussel {
+  width: 450px;
+  overflow-x: scroll;
 }
-.carousel .carousel_side_container {
+.carousel_container .slider_container .caroussel .slides-parent {
+  max-height: 400px;
+  height: 100%;
+  width: 450px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.carousel_container .slider_container .caroussel .slides-parent .slide {
+  height: 100%;
+  max-width: 450px;
+}
+.carousel_container .slider_container .caroussel .slides-parent .slide img {
+  z-index: 1;
+  height: auto;
+  width: 450px;
+}
+.carousel_container .slider_container .arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #32656A;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+}
+.carousel_container .slider_container .left-arrow {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+.carousel_container .slider_container .right-arrow {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.carousel_container .slider_container .arrow:hover {
+  background-color: #000;
+  opacity: 0.8;
+}
+.carousel_container .carousel_side_container {
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
-.carousel .carousel_side_container .carousel_side_img {
+.carousel_container .carousel_side_container .carousel_side_img {
   max-height: 200px;
   display: flex;
   flex-direction: row-reverse;
 }
-.carousel .carousel_side_container .carousel_side_img img {
+.carousel_container .carousel_side_container .carousel_side_img img {
   max-height: 100%;
   max-width: 100%;
   height: auto;
@@ -396,7 +434,7 @@ body {
   color: #32656A;
 }
 
-@media screen and (min-width: 320px) and (max-width: 720px) {
+@media screen and (min-width: 300px) and (max-width: 720px) {
   .header {
     justify-content: center;
   }
@@ -412,6 +450,27 @@ body {
   }
   .header .nav .nav_icon {
     justify-content: center;
+  }
+
+  .carousel_container {
+    justify-content: space-around;
+  }
+  .carousel_container .slider_container {
+    width: 95%;
+    min-width: 300px;
+  }
+  .carousel_container .slider_container img {
+    width: 300px;
+  }
+  .carousel_container .carousel_side_container {
+    width: 95%;
+    margin: 0 auto 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .carousel_container .carousel_side_container .carousel_side_img {
+    width: 300px;
   }
 }
 @media screen and (min-width: 725px) and (max-width: 1024px) {
@@ -433,6 +492,23 @@ body {
 
   .main {
     margin-top: 130px;
+  }
+
+  .carousel_container {
+    justify-content: space-around;
+  }
+  .carousel_container .slider_container {
+    width: 95%;
+  }
+  .carousel_container .carousel_side_container {
+    width: 95%;
+    margin: 0 auto 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .carousel_container .carousel_side_container .carousel_side_img {
+    width: 300px;
   }
 }
 
