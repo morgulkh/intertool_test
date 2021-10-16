@@ -443,13 +443,15 @@ body {
     flex-direction: column-reverse;
   }
   .header .nav .logo {
-    display: none;
+    position: absolute;
+    left: 10px;
+    top: 0;
   }
   .header .nav .search {
     width: 100%;
   }
   .header .nav .nav_icon {
-    justify-content: center;
+    justify-content: right;
   }
 
   .carousel_container {

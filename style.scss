@@ -444,13 +444,15 @@ body {
       justify-content: center;
       flex-direction: column-reverse;
       .logo {
-        display: none;
+        position: absolute;
+        left: 10px;
+        top: 0;
       }
       .search {
         width: 100%;
       }
       .nav_icon {
-        justify-content: center;
+        justify-content: right;
       }
     }
   }
