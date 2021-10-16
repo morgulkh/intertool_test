@@ -459,7 +459,21 @@ body {
     width: 95%;
     min-width: 300px;
   }
-  .carousel_container .slider_container img {
+  .carousel_container .slider_container .slide_img_background {
+    height: 400px;
+    width: 400px;
+  }
+  .carousel_container .slider_container .caroussel {
+    width: 300px;
+    margin-left: auto;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent {
+    width: 300px;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent .slide {
+    width: 300px;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent .slide img {
     width: 300px;
   }
   .carousel_container .carousel_side_container {
@@ -499,6 +513,23 @@ body {
   }
   .carousel_container .slider_container {
     width: 95%;
+  }
+  .carousel_container .slider_container .slide_img_background {
+    height: 500px;
+    width: 500px;
+  }
+  .carousel_container .slider_container .caroussel {
+    width: 400px;
+    margin-left: auto;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent {
+    width: 400px;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent .slide {
+    width: 400px;
+  }
+  .carousel_container .slider_container .caroussel .slides-parent .slide img {
+    width: 400px;
   }
   .carousel_container .carousel_side_container {
     width: 95%;
