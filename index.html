@@ -10,19 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-<div class="popup" id="popup">
-    <div class="form_container" id="form_container">
-        <form class="sign_in_form" id="sign_in_form">
-            <button type="button" class="cancel" id="cancel_btn"></button>
-            <h2>welcome</h2>
-            <input type="text" placeholder="Enter Login" id="login_input">
-            <p class="popup_error" id="wrong_login"></p>
-            <input type="text" placeholder="Enter Password" id="password_input">
-            <p class="popup_error" id="wrong_password"></p>
-            <button type="submit" id="btn_popup_sign_in">Sign in</button>
-        </form>
-    </div>
-</div>
 <header class="header">
     <div class="nav">
         <a class="logo" href="#"><img src="img/icon_logo/logo%201.png" alt="logo"></a>
@@ -205,6 +192,19 @@
         </div>
     </section>
 </main>
+<div class="popup" id="popup">
+    <div class="form_container" id="form_container">
+        <form class="sign_in_form" id="sign_in_form">
+            <button type="button" class="cancel" id="cancel_btn"></button>
+            <h2>welcome</h2>
+            <input type="text" placeholder="Enter Login" id="login_input">
+            <p class="popup_error" id="wrong_login"></p>
+            <input type="text" placeholder="Enter Password" id="password_input">
+            <p class="popup_error" id="wrong_password"></p>
+            <button type="submit" id="btn_popup_sign_in">Sign in</button>
+        </form>
+    </div>
+</div>
 <script>
     function clearForm () {
         document.getElementById('login_input').value = '';
