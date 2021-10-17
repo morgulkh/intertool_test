@@ -454,6 +454,9 @@ body {
       }
       .nav_icon {
         justify-content: right;
+        li {
+          margin-left: 15px !important;
+        }
       }
     }
   }

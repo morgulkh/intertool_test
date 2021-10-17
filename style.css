@@ -454,6 +454,9 @@ body {
   .header .nav .nav_icon {
     justify-content: right;
   }
+  .header .nav .nav_icon li {
+    margin-left: 15px !important;
+  }
 
   .carousel_container {
     justify-content: space-around;
